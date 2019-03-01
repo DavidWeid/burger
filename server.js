@@ -46,16 +46,22 @@ app.get("/", function(req, res) {
     });
 });
 
-app.post("/", function(req, res) {
-    connection.query("INSER INTO burgers (burger_name) VALUES (?)", [req.body.burger], function(err, result) {
+// POST request to create / add a new burger
+app.post("/burgers", function(req, res) {
+    connection.query("INSERT INTO burgers (burger_name) VALUES (?)", [req.body.burger], function(err, result) {
         if (err) { return res.status(500).end(); };
+
+        res.json({ id: result.insertId });
 
     });
 });
 
-app.put("/", function(req, res) {
-    connection.query("UPDATE burgers SET burger_name = ? WHERE id = ?", [req.body.plan, req.params.id], function(err, result) {
-        if (err) { return res.status(500).end(); };
-        
+// PUT request to update a burger (change devoured status to true)
+app.put("/burgers/:id", function(req, res) {
+    connection.query("UPDATE burgers SET devoured = ? WHERE id = ?", [true, req.body.id], function(err, result) {
+        if (err) { return res.status(500).end(); } else if (result.changedRows === 0) { return res.status(404).end() };
+
+        res.status(200).end();
+
     });
-})
+});
