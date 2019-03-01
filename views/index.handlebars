@@ -1,10 +1,10 @@
 <h1>Burger Nom</h1>
 
 <ul>
-  {{#each}}
+  {{#each burgers}}
   <li>
     <p>
-      {{this.id}}, {{this.burger}}
+      {{this.id}}, {{this.burger_name}}
       <button data-burgerid="{{this.id}}" class="devburg">Devour Burger!</button>
     </p>
   </li>
@@ -20,8 +20,8 @@
 <h2>Update a Burger</h2>
 <form id="updateburger" class="button-size">
   <select name="id">
-		{{#each}}
-			<option value="{{this.id}}">{{this.buger}}</option>
+		{{#each burgers}}
+			<option value="{{this.id}}">{{this.burger_name}}</option>
 		{{/each}}
 	</select>
   <textarea type="text" name="burger" placeholder="burger"></textarea>
