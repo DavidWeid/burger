@@ -1,6 +1,9 @@
 $(function() {
     // User clicks button to devour a burger (change devoured from false to true)
     $(".change-devoured").on("click", function(e) {
+
+        console.log("Devour Me clicked");
+
         var id = $(this).data("id");
         var newDevoured = $(this).data("newdevoured");
 
@@ -9,7 +12,7 @@ $(function() {
         };
 
         // Send PUT request
-        $.ajax("/api/burgers" + id, {
+        $.ajax("/api/burgers/" + id, {
             type: "PUT",
             data: newDevouredState
         }).then(function() {
@@ -18,22 +21,24 @@ $(function() {
             location.reload();
         });
     });
-});
 
-// User enters new burger and clicks submit (add new burger to db)
-$("#createburger").on("submit", function(e) {
-    e.preventDefault();
+    // User enters new burger and clicks submit (add new burger to db)
+    $("#createburger").on("submit", function(e) {
+        e.preventDefault();
 
-    var newBurger = {
-        name: $("#burg").val().trim()
-    };
+        var newBurger = {
+            burger_name: $("#burg").val().trim()
+        };
 
-    $.ajax("/api/burgers", {
-        type: "POST",
-        data: newBurger
-    }).then(function() {
-        console.log("Created new burger");
+        console.log(newBurger);
 
-        location.reload();
+        $.ajax("/api/burgers", {
+            type: "POST",
+            data: newBurger
+        }).then(function() {
+            console.log("Created new burger");
+
+            location.reload();
+        });
     });
 });

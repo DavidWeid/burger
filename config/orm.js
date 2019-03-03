@@ -93,9 +93,13 @@ var orm = {
 
     },
 
-    delete: function() {}
+    delete: function(table, condition, cb) {
+
+        // Delete burgers functionality
+
+    }
 }
 
 
-// Export orm object for the model
+// Export orm object for the model (burgers.js)
 module.exports = orm;
