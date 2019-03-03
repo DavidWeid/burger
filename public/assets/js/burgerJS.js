@@ -41,4 +41,24 @@ $(function() {
             location.reload();
         });
     });
+
+    ///////////////////////////////////////
+    ///// DELETE function not active /////
+
+    // To implement, need to add a button with attributes "id=deletebtn" and a "data-id='{{id}}'"
+
+    // User deletes a burger
+    $("#deletebtn").on("click", function(e) {
+        var id = $(this).data("id");
+
+        $.ajax("/api/burgers/" + id, {
+            type: "DELETE"
+        }).then(function() {
+            console.log("Burger deleted", id);
+
+            location.reload();
+        });
+    });
+
+    ///////////////////////////////////////
 });

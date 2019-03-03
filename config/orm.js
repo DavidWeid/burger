@@ -2,6 +2,7 @@
 var connection = require("../config/connection.js");
 
 // Helper function for SQL syntax loops through to create an array of ? and converts to string ["?", "?", "?"] "?,?,?"
+// Used in CREATE functionality
 function printQuestionMarks(num) {
     var arr = [];
 
@@ -13,6 +14,7 @@ function printQuestionMarks(num) {
 }
 
 // Helper function converts object key/value pairs to SQL syntax
+// Used in UPDATE functionality
 function objToSql(ob) {
     var arr = [];
 
@@ -93,13 +95,25 @@ var orm = {
 
     },
 
+    ///////////////////////////////////////
+    ///// DELETE route is not active /////
+
     delete: function(table, condition, cb) {
 
-        // Delete burgers functionality
+        var queryString = "DELETE FROM " + table;
+        queryString += " WHERE ";
+        queryString += condition;
+
+        connection.query(queryString, function(err, result) {
+            if (err) throw err;
+
+            cb(result);
+        });
 
     }
-}
 
+    ///////////////////////////////////////
+};
 
 // Export orm object for the model (burgers.js)
 module.exports = orm;

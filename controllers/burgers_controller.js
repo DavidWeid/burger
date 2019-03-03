@@ -40,7 +40,7 @@ router.put("/api/burgers/:id", function(req, res) {
 
     console.log("Condition", condition);
 
-    // burger.update is from burger.js model (function that links to orm.update, which then connects to the data base and "UPDATE burgers SET devoured = ? WHERE condtion")
+    // burger.update is from burger.js model (function that links to orm.update, which then connects to the database and "UPDATE burgers SET devoured = ? WHERE condtion")
     burger.update({
         devoured: req.body.devoured
     }, condition, function(result) {
@@ -52,11 +52,24 @@ router.put("/api/burgers/:id", function(req, res) {
     });
 });
 
+///////////////////////////////////////
+///// DELETE route is not active /////
+
+// DELETE route to remove a burger from the database via id = $(this).data("id")
 router.delete("/api/burgers/:id", function(req, res) {
+    var condition = "id = " + req.params.id;
 
-    // Delete burgers functionality
+    // burger.delete is from burger.js model (function that links to orm.delete, which then connects to the database and "DELETE FROM burgers WHERE condition")
+    burger.delete(condition, function(result) {
+        if (result.affectedRows == 0) { return res.status(404).end(); }
 
-})
+        else { res.status(200).end(); }
+
+    });
+
+});
+
+///////////////////////////////////////
 
 // Export routes for the server to use (server.js)
 module.exports = router;

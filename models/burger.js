@@ -27,6 +27,9 @@ var burger = {
 
     },
 
+    ///////////////////////////////////////
+    ///// DELETE route is not active /////
+
     delete: function(condition, cb) {
 
         orm.delete("burgers", condition, function(res) {
@@ -34,6 +37,8 @@ var burger = {
         });
 
     }
+
+    ///////////////////////////////////////
 };
 
 // Export database functions for the controller (burgers_controller.js)
