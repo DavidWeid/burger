@@ -1,6 +1,5 @@
-// Import express
-// Import "burger.js"
-// Create the app's "router", and export router at the end
-
 var express = require("express");
-require("burger.js");
+var router = express.Router();
+var burger = require("../models/burger.js");
+
+module.exports = router;

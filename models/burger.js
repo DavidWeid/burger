@@ -1,5 +1,19 @@
-// Import ORM
-// Code to call ORM functions using burger specific input for the ORM
-// Export at the end
+// Import ORM to create functions that will interact with the database
+var orm = require("../config/orm.js");
 
-require("ormObject");
+var burger = {
+    
+    create: function(cols, vals, cb) {
+
+    },
+
+    all: function(cb) {
+
+    },
+
+    update: function(objColVals, condition, cb) {
+
+    },
+
+    delete: function() {}
+}

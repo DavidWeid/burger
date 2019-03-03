@@ -1,51 +1,31 @@
 <h1>Burger Nom</h1>
 
+<h1>Burgers to Nom</h1>
+
 <div>
   {{#each burgers}}
-    <p>
-      {{id}}. {{burger_name}}
-      <button data-burgerid="{{this.id}}" class="devburg">Devour Burger!</button>
-    </p>
+    {{#unless devoured}}
+      
+      {{> burgers/burger-block devoured=true}}
+
+    {{/unless}}
+  {{/each}}
+</div>
+
+<h1>Burgers no More</h1>
+
+<div>
+  {{#each burgers}}
+    {{#if devoured}}
+
+      {{> burgers/burger-block devoured=false}}
+
+    {{/if}}
   {{/each}}
 </div>
 
 <h2>Create a Burger</h2>
 <form id="createburger">
-  <input type="text" name="burger" />
+  <input id="burg" type="text" name="burger"/>
   <button type="submit">Add Burger!</button>
 </form>
-
-<script type="text/javascript">
-
-  $(".devburg").on("click", function(e) {
-    var id = $(this).data("burgerid");
-    console.log(id);
-
-    $.ajax("/burgers/" + id, {
-      type: "PUT",
-      data: {
-        id: id
-      }
-    }).then(function() {
-      console.log("updated id ", id);
-      location.reload();
-    })
-  });
-
-  $("#createburger").on("submit", function(e) {
-    e.preventDefault();
-
-    var newBurger = {
-      burger: $("#createburger [name=burger]").val().trim()
-    };
-
-    $.ajax("/burgers", {
-      type: "POST",
-      data: newBurger
-    }).then(function() {
-      console.log("created new burger");
-      location.reload();
-    })
-  });
-
-</script>
