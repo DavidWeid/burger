@@ -1,7 +1,6 @@
-# Burger Nom :hamburger:
-<br/><br/>
+# Burger Nom
 
-[Burger Nom](https://desolate-garden-11224.herokuapp.com/) is Live!
+[Burger Nom](https://desolate-garden-11224.herokuapp.com/) is Live! :hamburger:
 
 ## Overview
 
