@@ -2,6 +2,8 @@
 
 [Burger Nom](https://desolate-garden-11224.herokuapp.com/) is Live! :hamburger:
 
+![Burger Nom Home](/gitHubImg/burgerNom.png)
+
 ## Overview
 
 Burger Nom is a Node Express application hosted on Heroku. It utilizes Handlebars, a template engine, for generating HTML and JawsDB for a fully functioning MySQL Database server.
