@@ -1,4 +1,4 @@
-# Burger Nom
+# Burger Nom :hamburger:
 
 [Burger Nom](https://desolate-garden-11224.herokuapp.com/) is Live!
 
