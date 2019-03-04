@@ -38,6 +38,8 @@ The process repeats (controller --> model --> ORM --> model --> controller), the
 
 Lastly, the user can update a burger to change its "devoured" state from false to true (moving the burger from the left to the right).
 
+- - -
+
 #### Directory structure
 
 All the application files and directories have the following structure:
@@ -95,7 +97,7 @@ All the application files and directories have the following structure:
 Burger Nom allows a user to add a burger and to "devour" a burger. When adding a burger, the string "burger" must exist in the new burger's name. This string is not case-sensitive.
 
 A delete functionality exists in all of the necessary app files and directories, except the view. The delete functionality is disabled. To enable this feature, a button would need
-to be added to the view with the attributes "id=deletebtn" and "data-id='{{id}}'". The button would be best created in the burger-block.handlebars file.
+to be added to the view with the attributes `"id=deletebtn"` and `"data-id='{{id}}'"`. The button would be best created in the burger-block.handlebars file.
 
 Another functionality exists but has been disabled and is not complete. This creates a home-page that is a full-screen page with a single image and button. The button would
 switch the view to the Burger Nom interactive page. For the function to work, a new route would need to be created that is only displayed when the user goes to the page for the first time.
