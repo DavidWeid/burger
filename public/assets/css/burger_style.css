@@ -1,6 +1,11 @@
 body, html {
     height: 100%;
+    font-family: "Oswald", sans-serif;
+    font-weight: 200;
     list-style: none;
+    background-color: white;
+    color: white;
+    text-shadow: -1px 0 #485460, 0 1px #485460, 1px 0 #485460, 0 -1px #485460;
 }
 
 .container {
@@ -9,6 +14,7 @@ body, html {
 
 input[type="text"] {
     text-align: center;
+    color: white;
 }
 
 li {
@@ -17,4 +23,37 @@ li {
 
 .change-devoured {
     margin-left: 25px;
+}
+
+.title-row {
+    background-color: white;
+    background: url("../img/burgerIcon.png") no-repeat center;
+    background-size: cover;
+    height: 150px;
+    position: relative;
+}
+
+.title-text {
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+}
+
+.burger-row {
+    margin-bottom: 0;
+}
+
+.burger-row, .form-row {
+    background-color: #ffa801;
+}
+
+.btn {
+    background-color: #05c46b;
+}
+
+.btn:hover {
+    background-color: #f53b57;
 }

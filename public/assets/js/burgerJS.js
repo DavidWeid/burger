@@ -30,16 +30,26 @@ $(function() {
             burger_name: $("#burg").val().trim()
         };
 
-        console.log(newBurger);
+        var newBurgerNameLC = newBurger.burger_name.toLowerCase();
 
-        $.ajax("/api/burgers", {
-            type: "POST",
-            data: newBurger
-        }).then(function() {
-            console.log("Created new burger");
+        if (newBurgerNameLC === "") {
+            return;
+        } else if (newBurgerNameLC.includes("burger") === false) {
+            return;
+        } else {
 
-            location.reload();
-        });
+            console.log(newBurger);
+
+            $.ajax("/api/burgers", {
+                type: "POST",
+                data: newBurger
+            }).then(function() {
+                console.log("Created new burger");
+
+                location.reload();
+            });
+
+        }
     });
 
     ///////////////////////////////////////
