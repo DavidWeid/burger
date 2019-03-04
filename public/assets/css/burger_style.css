@@ -1,3 +1,20 @@
-body {
-    line-height: 150%;
+body, html {
+    height: 100%;
+    list-style: none;
+}
+
+.container {
+    height: 100%;
+}
+
+input[type="text"] {
+    text-align: center;
+}
+
+li {
+    margin: 25px;
+}
+
+.change-devoured {
+    margin-left: 25px;
 }
