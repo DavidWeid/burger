@@ -1,4 +1,11 @@
 $(function() {
+
+    // $("#clickMe").on("click", function() {
+    //     $("#enter-container").css("opacity", "0");
+    //     $("#index-container").css("opacity", "1");
+    //     $("body").css("background-color", "white");
+    // })
+
     // User clicks button to devour a burger (change devoured from false to true)
     $(".change-devoured").on("click", function(e) {
 
